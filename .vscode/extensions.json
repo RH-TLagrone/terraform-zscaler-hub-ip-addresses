@@ -1,0 +1,10 @@
+{
+	"recommendations": [
+		"bierner.markdown-preview-github-styles",
+		"davidanson.vscode-markdownlint",
+		"davraamides.todotxt-mode",
+		"hashicorp.hcl",
+		"hashicorp.terraform",
+		"yzhang.markdown-all-in-one"
+	]
+}

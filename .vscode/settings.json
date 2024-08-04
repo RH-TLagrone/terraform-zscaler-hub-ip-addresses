@@ -1,5 +1,12 @@
 {
+	"cSpell.ignorePaths": [
+		".git/objects",
+		".vscode",
+		"todo.txt"
+	],
 	"cSpell.words": [
 		"Zscaler"
-	]
+	],
+
+	"explorer.sortOrder": "type"
 }
