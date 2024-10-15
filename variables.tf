@@ -54,3 +54,21 @@ variable "type" {
     error_message = "The type must be either \"required\" or \"recommended\"."
   }
 }
+
+variable "as_azurerm_storage_account_ip_rules" {
+  type        = bool
+  nullable    = false
+  default     = false
+  description = <<-EOT
+    Whether to format the output hub_prefixes as Azure Storage Account IP rules.
+
+    If true, then:
+    - Excludes IPv6 addresses. (i.e. includes only IPv4 addresses)
+    - Replaces /32 IPv4 address CIDRs with one non-CIDR address. (i.e. without the trailing "/32")
+    - Replaces /31 IPv4 address CIDRs with two non-CIDR addresses. (i.e. without the trailing "/31")
+    Defaults to false.
+
+    See Also:
+      https://learn.microsoft.com/azure/storage/common/storage-network-security#restrictions-for-ip-network-rules
+    EOT
+}

@@ -28,6 +28,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_as_azurerm_storage_account_ip_rules"></a> [as\_azurerm\_storage\_account\_ip\_rules](#input\_as\_azurerm\_storage\_account\_ip\_rules) | Whether to format the output hub\_prefixes as Azure Storage Account IP rules.<br><br>If true, then:<br>- Excludes IPv6 addresses. (i.e. includes only IPv4 addresses)<br>- Replaces /32 IPv4 address CIDRs with one non-CIDR address. (i.e. without the trailing "/32")<br>- Replaces /31 IPv4 address CIDRs with two non-CIDR addresses. (i.e. without the trailing "/31")<br>Defaults to false.<br><br>See Also:<br>  https://learn.microsoft.com/azure/storage/common/storage-network-security#restrictions-for-ip-network-rules | `bool` | `false` | no |
 | <a name="input_cloud_name"></a> [cloud\_name](#input\_cloud\_name) | Name of the Zscaler cloud for which to return Zscaler Hub IP addresses.<br><br>Must be one of the ZIA clouds (e.g. "zscaler.net").<br>May not be a ZPA cloud (e.g. "private.zscaler.com") or ZDX cloud (e.g. "zdxcloud.net").<br>Defaults to "zscaler.net".<br><br>See Also:<br>  https://config.zscaler.com/ | `string` | `"zscaler.net"` | no |
 | <a name="input_type"></a> [type](#input\_type) | The disjoint subset of IP addresses to return.<br><br>Must be either "required" or "recommended".<br>Defaults to "required".<br><br>Note:<br>  Zscaler Hub IP address ranges run vital Zscaler cloud services, platform management, and monitoring.<br>  Access to & from these IP addresses is essential for seamless service delivery and resilient and scalable support.<br><br>See Also:<br>  https://config.zscaler.com/zscaler.net/hubs | `string` | `"required"` | no |
 
@@ -35,8 +36,4 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_IPv4_hub_prefixes"></a> [IPv4\_hub\_prefixes](#output\_IPv4\_hub\_prefixes) | List of IP ranges in CIDR format. Only IPv4 addresses are included. |
-| <a name="output_IPv6_hub_prefixes"></a> [IPv6\_hub\_prefixes](#output\_IPv6\_hub\_prefixes) | List of IP ranges in CIDR format. Only IPv6 addresses are included. |
-| <a name="output_cloud_name"></a> [cloud\_name](#output\_cloud\_name) | Name of the Zscaler cloud to which the IP addresses belong.<br><br>Equal to `var.cloud_name`.<br><br>See Also:<br>  https://config.zscaler.com/ |
-| <a name="output_hub_prefixes"></a> [hub\_prefixes](#output\_hub\_prefixes) | List of IP ranges in CIDR format. Both IPv4 and IPv6 addresses are included. |
-| <a name="output_type"></a> [type](#output\_type) | Type of the disjoint subset of IP addresses.<br><br>Equal to `var.type`.<br><br>Note:<br>  Zscaler Hub IP address ranges run vital Zscaler cloud services, platform management, and monitoring.<br>  Access to & from these IP addresses is essential for seamless service delivery and resilient and scalable support.<br><br>See Also:<br>  https://config.zscaler.com/zscaler.net/hubs |
+| <a name="output_hub_prefixes"></a> [hub\_prefixes](#output\_hub\_prefixes) | List of IP ranges in CIDR format. |
